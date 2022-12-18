@@ -1,3 +1,5 @@
+import crypto from "node:crypto";
+
 export function randomUUID(): string {
     const uuid = crypto.randomUUID().replaceAll("-", "").toLocaleLowerCase();
 
