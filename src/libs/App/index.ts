@@ -13,9 +13,12 @@ export class App {
   }
 
   private _Render(callbackTemplate: TTemplate): void {
-    const response = callbackTemplate()
+    const body = callbackTemplate()
     this._anchor.innerHTML = ""
-    this._anchor.appendChild(response)
+    
+    Array.from(body.children).forEach(element => {
+      this._anchor.appendChild(element)
+    })
   }
 
   public Template(templateString: TTemplate): void {
@@ -45,15 +48,15 @@ export class App {
     })
 
     const html = new DOMParser().parseFromString(result.join(""), "text/html").body
-    
+
     Array.from(html.children).forEach((child) => {
       if (!(child instanceof HTMLElement)) return
 
       Object.keys(child.dataset).forEach(uuid => {
         if (typeof specialActions.get(uuid) === "function") {
-          const action = specialActions.get(uuid) as Function
+          const action = specialActions.get(uuid) as () => null
   
-          child.addEventListener(action.name, () => action())
+          child.addEventListener(action.name, action)
   
           child.removeAttribute(`data-${uuid}`)
         }
@@ -63,16 +66,15 @@ export class App {
     return html
   }
 
-  public OnClick(callback: () => void) {
-    const click = () => callback()
+  public On<T extends keyof HTMLElementEventMap, R extends HTMLElementEventMap[T]>(type: T, action: (ev: R) => void) {
+    const fn = (ev: R) => action(ev)
 
-    return click
-  }
+    Object.defineProperty(fn, "name", {
+      value: type,
+      configurable: false
+    })
 
-  public OnMouseover(callback: () => void) {
-    const mouseover = () => callback()
-
-    return mouseover
+    return fn
   }
 
   public Reactive<T extends {}>(params: T) {

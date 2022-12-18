@@ -1,23 +1,21 @@
 import './style.css'
 import { App } from './libs/App'
 
-const app = new App("#app")
+const app = new App(".app")
 
-const vars = app.Reactive({
+const data = app.Reactive({
   title: "Hello World",
-  open: false
+  counter: 0
 })
+
+function handleIncrement() {
+  data.counter++
+}
 
 app.Template(() => app.CreateTemplate`
-  <div
-    ${app.OnMouseover(() => { console.log('passou mouse por cima!!') })}
-    ${app.OnClick(() => { console.log('clicou!!') })}
-  >
-    <h1>${vars.title}</h1>
+  <div class="content">
+    <h1>${data.title}</h1>
+    <p>Counter: ${data.counter}</p>
   </div>
-  ${vars.open ? `<p>Está aberto</p>` : ""}
+  <button type="button" ${app.On("click", handleIncrement)}>Increment</button>
 `)
-
-window.addEventListener('click', () => {
-  vars.open = true
-})
