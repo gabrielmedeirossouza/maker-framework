@@ -1,4 +1,4 @@
-type TTemplate = () => HTMLElement
+export type TTemplate = () => HTMLElement
 
 export class App {
   private _anchor: HTMLElement;
