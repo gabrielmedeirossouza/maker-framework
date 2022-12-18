@@ -1,14 +1,28 @@
 {
-  "name": "proxy",
+  "name": "maker-framework",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "tsc && vite build"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^4.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
+    "eslint": "^8.30.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-sort-class-members": "^1.16.0",
+    "eslint-plugin-unicorn": "^45.0.2",
+    "prettier": "^2.8.1",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
   }
