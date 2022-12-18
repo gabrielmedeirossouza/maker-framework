@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { randomUUID } from '.';
 
-describe('randomUUID', () => {
+describe(randomUUID.name, () => {
     it('should return a string', () => {
         const uuid = randomUUID();
 
