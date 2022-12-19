@@ -1,4 +1,4 @@
-import crypto from "node:crypto";
+import { crypto } from '@/helpers/api';
 
 export function randomUUID(): string {
     const uuid = crypto.randomUUID().replaceAll("-", "").toLocaleLowerCase();
