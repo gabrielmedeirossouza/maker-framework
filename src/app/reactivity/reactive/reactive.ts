@@ -1,4 +1,4 @@
-import { Maker } from '../';
+import { Maker } from '@/app';
 
 export class Reactive {
     private _maker: Maker;

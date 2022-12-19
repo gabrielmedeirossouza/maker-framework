@@ -1,5 +1,5 @@
-import { HTML_ELEMENT_EVENT_TYPES } from '../action/@constants';
-import { randomUUID } from '@/helpers/random-uuid';
+import { HTML_ELEMENT_EVENT_TYPES } from './@constants';
+import { randomUUID } from '@/helpers/generators';
 
 type TFunction = (...args: any[]) => any
 

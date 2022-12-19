@@ -1,5 +1,5 @@
-import { View } from ".";
-import type { TTemplate } from '.';
+import { View } from "..";
+import type { TTemplate } from '..';
 
 export class Render {
     private _anchor: HTMLElement;

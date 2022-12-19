@@ -1,4 +1,4 @@
-import { Maker } from '../';
+import { Maker } from '@/app';
 import { Reactive } from './reactive';
 
 export class Reactivity {
